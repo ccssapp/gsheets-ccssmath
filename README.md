@@ -2,9 +2,11 @@
 Google Sheets custom functions for CCSS math items
 
 # INSTALL
+  + Go to the [latest release][latest].
+    + Under assets, download/open `code.gs` file.
   + Open Google Sheets.
   + From the Extensions menu, select Apps Script.
-  + Copy and paste `Code.gs` in releases into Apps Script.
+  + Copy and paste all the text in the `Code.gs` into the Apps Script editor.
 
 # Function list
 
@@ -45,6 +47,6 @@ Returns standards keys and details for the required parameter `search_for`, if r
   + MIT
 
 
-
+[latest]: https://github.com/ccssapp/gsheets-ccssmath/releases/latest
 [ccssm]: http://www.corestandards.org/Math/
 [itemid]: https://github.com/ccssapp/ccssmath-items/blob/main/ITEMID.md
