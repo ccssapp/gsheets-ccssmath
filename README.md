@@ -15,7 +15,7 @@ Google Sheets custom functions for CCSS math items
   + Return to your spreadsheet.
   + Start typing the custom function names: `=CCSSMATH....` 
 
-> **NOTE:** These custom functions only work for that spreadsheet. To use the custom functions, in another spreadsheet, repeat the installation instructions.
+> **NOTE:** These custom functions only work for that spreadsheet. To use the custom functions in another spreadsheet, please repeat the installation instructions.
 
 # Function list
 
