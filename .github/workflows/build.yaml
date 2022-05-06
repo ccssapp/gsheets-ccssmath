@@ -1,0 +1,72 @@
+# build.yaml
+# creates a new code.gs for release
+# author: CCSS Digital Library
+# license: MIT
+
+name: build-code-gs
+
+on:
+  milestone:
+    types: [closed]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps: 
+        - name: Set release tag name
+          run: |
+            echo '::set-output name=TAGNAME::'$(date +"v%Y.%m.%d") 
+            echo '::set-output name=OUTFILE::code.gs'
+          id: heretag
+        - name: Get release tag name
+          run: |
+            echo "${{ steps.heretag.outputs.TAGNAME }}"            
+            echo "${{ steps.heretag.outputs.OUTFILE }}"        
+        - name: Checkout code
+          uses: actions/checkout@v3        
+        - name: Build project zip asset
+          id: buildzip
+          run: |
+            touch code.gs
+            echo "/* code.gs */" >> code.gs
+            REPO=https://github.com/ccssapp/gsheets-ccssmath
+            echo "/* git: $REPO */" >> code.gs
+            TAG=${{ steps.heretag.outputs.TAGNAME }}
+            echo "/* Release: $TAG */" >> code.gs
+            echo "getting cat nip ... "
+            git clone https://github.com/pffy/nip
+            HR=nip/js/hr80.js
+            BAR="$HR $HR $HR"
+            cat src/addon.gs $BAR src/data.gs >> code.gs
+        - name: Create Release
+          id: create_release          
+          uses: actions/create-release@v1
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          with:
+            tag_name: ${{ steps.heretag.outputs.TAGNAME }}
+            release_name: ${{ steps.heretag.outputs.TAGNAME }}
+            body: |
+              ## Details
+              * CCSSMATH for Google Sheets
+              + Custom functions for CCSS math standards quick reference
+              * License: MIT
+              
+              ---
+              [here]: https://github.com/ccssapp/gsheets-ccssmath
+            draft: true
+            prerelease: true
+        - name: Upload Release Asset
+          id: upload-release-asset 
+          uses: actions/upload-release-asset@v1
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          with:
+            upload_url: ${{ steps.create_release.outputs.upload_url }} 
+            asset_path: ./${{ steps.heretag.outputs.OUTFILE }}
+            asset_name: ${{ steps.heretag.outputs.OUTFILE }}
+            asset_content_type: text/plain
