@@ -3,7 +3,7 @@ Google Sheets custom functions for CCSS math items
 
 # INSTALL
 
-The source code in this repository is divided into several individual files. However, for your coenvenience, all of these files have been combined into a single `code.gs` file. Here is how to add the custom functions to your spreadsheet. 
+The source code in this repository is divided into several individual files. However, for your coenvenience, all of these files have been combined into a single `code.gs` file. Here is how to use that file to add these custom functions to your spreadsheet. 
 
 ### On GitHub
   + Go to the [latest release][latest].
