@@ -2,14 +2,20 @@
 Google Sheets custom functions for CCSS math items
 
 # INSTALL
+
+## On GitHub
   + Go to the [latest release][latest].
-    + Under **Assets**, download and open the `code.gs` file.
-  + Open Google Sheets.
-    + From the Extensions menu, select Apps Script.
-    + Copy and paste all the text from the `Code.gs` into the Apps Script editor.
-    + Save.
-    + Return to your spreadsheet.
-    + Start typing the custom function names: `=CCSSMATH....` 
+  + Under **Assets**, download and open the `code.gs` file.
+
+## On Google Sheets
+  + Open a Google Sheets spreadsheet
+  + From the Extensions menu, select Apps Script.
+  + Copy and paste all the text from the `Code.gs` into the Apps Script editor.
+  + Save.
+  + Return to your spreadsheet.
+  + Start typing the custom function names: `=CCSSMATH....` 
+
+> **NOTE:** These custom functions only work for that spreadsheet. To use the custom functions, in another spreadsheet, repeat the installation instructions.
 
 # Function list
 
