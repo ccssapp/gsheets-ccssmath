@@ -44,12 +44,12 @@ Returns standards details using the required parameter `itemid`, a [valid CCSS M
 ## `=CCSSMATH(search_for, [ as_two_columns ])`
 Returns standards keys and details for the required parameter `search_for`, if results found. Returns the results as two separate columns if the optional parameter `as_two_columns` is set to TRUE.
 
-## Returning one column (1d array)
+#$# Returning one column (1d array)
   + Accepts text input. Returns an array.
   + EXAMPLE: `=CCSSMATH("geometry")`
   + EXAMPLE: `=CCSSMATH(A1)`
 
- ## Returning two columns (2d array)
+$## Returning two columns (2d array)
   + Accepts text input and a boolean. Returns an array.
   + EXAMPLE: `=CCSSMATH("function inverse", true)`
   + EXAMPLE: `=CCSSMATH(A1, true)`     
